@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/style_card"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/photoId"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/lamborghini"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"/>
+
+        <TextView
+            android:id="@+id/markId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mark   :"
+            android:layout_toRightOf="@+id/photoId"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/modelId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Model :"
+            android:layout_toRightOf="@+id/photoId"
+            android:layout_below="@+id/markId"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textSize="24sp"/>
+        <TextView
+            android:id="@+id/yearId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Year    :"
+            android:layout_toRightOf="@+id/photoId"
+            android:layout_below="@+id/modelId"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textSize="24sp"/>
+        <TextView
+            android:id="@+id/speedId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Speed :"
+            android:layout_toRightOf="@+id/photoId"
+            android:layout_below="@+id/yearId"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/markName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NONE"
+            android:layout_toRightOf="@id/markId"
+            android:layout_marginLeft="10dp"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/modelName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NONE"
+            android:layout_toRightOf="@id/modelId"
+            android:layout_marginLeft="10dp"
+            android:textSize="24sp"
+            android:layout_below="@id/markName"/>
+
+        <TextView
+            android:id="@+id/yearDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NONE"
+            android:layout_toRightOf="@id/yearId"
+            android:layout_marginLeft="10dp"
+            android:textSize="24sp"
+            android:layout_below="@id/modelName"/>
+
+        <TextView
+            android:id="@+id/speedValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NONE"
+            android:layout_toRightOf="@id/speedId"
+            android:layout_marginLeft="10dp"
+            android:textSize="24sp"
+            android:layout_below="@id/yearDate"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
