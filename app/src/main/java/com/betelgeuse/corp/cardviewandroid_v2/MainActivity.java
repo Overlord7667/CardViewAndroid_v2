@@ -1,10 +1,17 @@
 package com.betelgeuse.corp.cardviewandroid_v2;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Person;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +19,51 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final int REQUEST_CODE = 1;
+    private static final int RESULT_CODE = 2;
+    Intent intent;
+    List<Car> AllCars = new ArrayList<>();
+    ImageView imageView;
+    String pas;
+
+    //Добавление данных из addActivity
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        intent = data;
+
+
+        if (data != null){
+            String addMark = intent.getStringExtra("Mark");
+            String addModel = intent.getStringExtra("Model");
+            Integer addYear = intent.getIntExtra("Year",0);
+            Integer addSpeed = intent.getIntExtra("Speed",0);
+            String pas = intent.getStringExtra("pas");
+
+//            if (getIntent().hasExtra("byteArray")){
+//                ImageView previewThumbnail = new  ImageView(this);
+//                Bitmap b = BitmapFactory.decodeByteArray(
+//                        getIntent().getByteArrayExtra("byteArray"),0,getIntent().getByteArrayExtra("byteArray").length);
+//                previewThumbnail.setImageBitmap(b);
+//            }
+
+            Toast.makeText(this, pas, Toast.LENGTH_SHORT).show();
+            AllCars.add(new Car(addModel, addMark, addYear, addSpeed, R.drawable.car));
+        }else {
+            Toast.makeText(this, "NOT DATA", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,16 +71,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ListView listView = findViewById(R.id.listItem);
-        List<Car> AllCars = new ArrayList<>();
         AllCars.add(new Car("Diablo", "Lamborghini", 2020, 280, R.drawable.lamborghini));
         AllCars.add(new Car("812", "Ferrari", 2020, 260, R.drawable.ferrari));
         AllCars.add(new Car("Chiron", "Bugatti", 2020, 380, R.drawable.bugatti));
         AllCars.add(new Car("Gemera", "Koenigsegg", 2020, 440, R.drawable.koenigsegg));
 
+
         CarAdapter carAdapter = new CarAdapter(AllCars, this, R.layout.car_item);
         listView.setAdapter(carAdapter);
-
     }
+
+    public void addItemBtn(View View){
+        Intent intent = new Intent(this, AddActivity.class);
+        startActivityForResult(intent, 10);
+    }
+
+
 }
 
 class CarAdapter extends BaseAdapter {
@@ -139,4 +192,6 @@ class Car{
     public void setImageId(int imageId) {
         ImageId = imageId;
     }
+
+
 }

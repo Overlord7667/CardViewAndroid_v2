@@ -100,5 +100,4 @@
             android:textSize="24sp"
             android:layout_below="@id/yearDate"/>
     </RelativeLayout>
-
 </androidx.cardview.widget.CardView>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp">
+
+    <RelativeLayout
+        android:id="@+id/cardID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/style_card">
+
+        <ImageView
+            android:id="@+id/photo2Id"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/car" />
+
+        <TextView
+            android:id="@+id/markId2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/photo2Id"
+            android:text="Mark   :"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="11dp"/>
+
+        <TextView
+            android:id="@+id/modelId2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/markId2"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/photo2Id"
+            android:text="Model :"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="19dp"/>
+
+        <TextView
+            android:id="@+id/yearId2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/modelId2"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/photo2Id"
+            android:text="Year    :"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"/>
+
+        <TextView
+            android:id="@+id/speedId2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/yearId2"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/photo2Id"
+            android:text="Speed :"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="19dp"/>
+
+        <EditText
+            android:id="@+id/markName2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/markId2"
+            android:textSize="24sp"
+            android:hint="mark enter"/>
+
+        <EditText
+            android:id="@+id/modelName2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/markName2"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/modelId2"
+            android:textSize="24sp"
+            android:hint="model enter"/>
+
+        <EditText
+            android:id="@+id/yearDate2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/modelName2"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/yearId2"
+            android:textSize="24sp"
+            android:hint="year enter"/>
+
+        <EditText
+            android:id="@+id/speedValue2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/yearDate2"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/speedId2"
+            android:textSize="24sp"
+            android:hint="speed enter"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardID"
+        android:text="Add"
+        android:textSize="30sp"
+        android:onClick="addBtn"/>
+    <Button
+        android:id="@+id/addBtnGallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addBtn"
+        android:text="Add Image"
+        android:textSize="30sp"
+        android:onClick="addImage"/>
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addBtnGallery"
+        android:text="Back"
+        android:textSize="30sp"
+        android:onClick="backBtn"/>
+
+</RelativeLayout>
