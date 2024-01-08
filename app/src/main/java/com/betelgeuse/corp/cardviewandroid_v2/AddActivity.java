@@ -32,17 +32,8 @@ public class AddActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-//        Intent i = new Intent(this, MainActivity.class);
-//        Bitmap b = null;
-//        ByteArrayOutputStream bs = new ByteArrayOutputStream();
-//        b.compress(Bitmap.CompressFormat.PNG, 50, bs);
-//        i.putExtra("byteArray", bs.toByteArray());
-//        startActivity(i);
-
-
         if (requestCode == 30 && data != null){
             Uri uri = data.getData();
-            //Toast.makeText(this, uri.toString(), Toast.LENGTH_SHORT).show();
             pas = uri.toString();
             imageView.setImageURI(uri);
         }
@@ -68,17 +59,15 @@ public class AddActivity extends AppCompatActivity {
         Toast.makeText(this, "IMAGE ADD", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, 30);
-        imageView.setImageURI(intent.getData());
     }
 
     public void addBtn(View view){
-//        Toast.makeText(this, mark.getText(), Toast.LENGTH_SHORT).show();
 
         String Model = String.valueOf(model.getText());
         String Mark = String.valueOf(mark.getText());
         int Year = Integer.parseInt(year.getText().toString());
         int Speed = Integer.parseInt (speed.getText().toString());
-//        int pas = Integer.parseInt (pas.getText().toString());
+
 
 
         Intent intent = new Intent();
@@ -86,7 +75,7 @@ public class AddActivity extends AppCompatActivity {
         intent.putExtra("Model", Model);
         intent.putExtra("Year", Year);
         intent.putExtra("Speed", Speed);
-//        intent.putExtra("pas", pas);
+        intent.putExtra("pas", pas);
 
         setResult(200,intent);
 
